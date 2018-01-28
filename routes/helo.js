@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     var p1 = req.query.p1;
     var p2 = req.query.p2;
-    var msg = pl == undefined ? "" : p1 + "," + p2;
+    var msg = p1 == undefined ? "" : p1 + "," + p2;
     res.render('helo',
         {
             title: 'HELO',
