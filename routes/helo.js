@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
     var msg = p1 == undefined ? "" : p1 + "," + p2;
     res.render('helo',
         {
-            title: 'HELO',
+            title: 'メメちゃん可愛いね',
             msg: msg
         }
     );
