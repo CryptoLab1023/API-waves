@@ -1,15 +1,34 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 /* GET helo page. */
-router.get('/', function (req, res, next) {
-    var p1 = req.query.p1;
-    var p2 = req.query.p2;
-    var msg = p1 == undefined ? "" : p1 + "," + p2;
+router.get("/", function(req, res, next) {
+  var str;
+  try {
+    str = req.cookies.lastdata;
+  } catch (e) {}
+    res.render("helo", {
+        title: 'HELO',
+        msg: 'please type...',
+        cookie: "last:" + str,
+        input: ""
+  });
+});
+
+/* POST helo page. */
+router.post('/', function (req, res, next) {
+    var str = req.body.input1;
+    res.cookie("lastdata", str,
+        {
+            expires: new Date(Date.now() + 600000)
+        }
+    );
     res.render('helo',
         {
-            title: 'メメちゃん可愛いね',
-            msg: msg
+            title: 'HELO Page',
+            msg: "you typed:" + str,
+            cookie: str,
+            input: str
         }
     );
 })
