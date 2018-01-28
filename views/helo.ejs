@@ -7,14 +7,11 @@
     </head>
     <body>
         <h1><%= title %></h1>
+        <h2><%= msg %></h2>
         <table>
-        <% for (var key in data){ %>
             <tr>
-                <td><%= key %></td>
-                <td><%= data[key] %></td>
                 <p><a href="/helo?p1=hello&p2=bye">link</a></p>
             </tr>
-        <% } %>
         </table>
     </body>
 </html>
